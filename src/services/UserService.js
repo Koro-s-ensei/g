@@ -6,7 +6,6 @@ import { appURL } from '../config/api';
  * @param {username, password} creds 
  */
 export const login = creds => {
-    //return axios.post(loginURl, creds)
     return new Promise((resolve, reject) => {
         const { username, password } = creds
         let loginObject={

@@ -53,7 +53,7 @@ const VideoList = props => {
 
 
 
-const mapStateToProps = (state) => { //store.getState()
+const mapStateToProps = (state) => { 
     return {
         tasks: state.tasks
     }
