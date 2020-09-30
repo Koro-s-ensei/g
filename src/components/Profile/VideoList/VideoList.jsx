@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { ListGroup, Alert } from 'reactstrap'
 import { loadTasksAction } from '../../../actions/taskActions'
 import './profilemodal.css';
+import { videoURL } from '../../../config/api'
 
 const VideoList = props => {
     const { tasks } = props
@@ -15,7 +16,7 @@ const VideoList = props => {
     if (tasks.length === 0) {
         return null
     }
-
+	console.log(videoURL);
 	const manageState = ev =>{
 		setModalState(!modalState)
 		const videoLinks=ev;
@@ -30,7 +31,7 @@ const VideoList = props => {
 					{tasks.map(item => (
 							<div className="video-list" key={item.id} onClick={ () => manageState(item.video) } >
 								<a key={item.id} data-value={item.video} data-video-src={item.video} data-video-description={item.description} >
-									<video src={"http://panel.telly.network/api/"+item.video}  type="video/mp4"></video>
+									<video src={ videoURL +item.video}  type="video/mp4"></video>
 								</a>
 							</div>
 					))}
@@ -41,7 +42,7 @@ const VideoList = props => {
 							className="close" onClick={() => manageState()}>&times;
 						</span>
 						
-							<video width="100%" height="90%" controls src={`http://panel.telly.network/api/${videoLinks}`} type="video/mp4" controls autoPlay>
+							<video width="100%" height="90%" controls src={ videoURL + videoLinks} type="video/mp4" controls autoPlay>
 						</video>
 					</div>
 				</div>
