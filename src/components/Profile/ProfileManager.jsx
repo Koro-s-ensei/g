@@ -13,7 +13,6 @@ class ProfileManager extends Component{
 			<Row>
 				<Col>
 				<div className="profile-manger">
-					<UserProfile></UserProfile>
 					<div className="wrapper-video" >
 						<VideoList></VideoList >
 					</div>
