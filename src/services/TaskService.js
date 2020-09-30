@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { taskURL } from '../config/api'
+import { appURL } from '../config/api'
 
 export const getTasks = () => {
 	 return new Promise((resolve, reject) => {
@@ -10,8 +11,9 @@ export const getTasks = () => {
 		//console.log(user_id);
 		//console.log('**********');
 		const token_1= token.replace(/\"/g, "");
+		console.log(appURL)
 		//console.log(token_1);
-	   axios.post('http://strapi.telly.network/videos-lists-user-id', { user_id : user_id },{
+	   axios.post(appURL + 'videos-lists-user-id', { user_id : user_id },{
 		headers: {
 			'Content-Type':'application/json',
 			'Authorization': `Bearer ${token_1}`

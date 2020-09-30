@@ -1,4 +1,5 @@
 import axios from "axios";
+import { appURL } from '../config/api';
 
 /**
  * 
@@ -13,7 +14,7 @@ export const login = creds => {
             password: password
           }
         axios
-        .post(`http://strapi.telly.network/auth/local`, {
+        .post( appURL +'auth/local', {
             identifier: username,
             password: password
         })
@@ -57,7 +58,7 @@ export const register= creds => {
     return new Promise((resolve, reject) => {
         const { username, email, password, number } = creds
         console.log('creds', creds)
-        axios.post(`http://strapi.telly.network/auth/local/register`, {
+        axios.post( appURL +'auth/local/register', {
             username : username,
             email : email,
             password : password
@@ -101,7 +102,7 @@ export const googlelogin = creds => {
     return new Promise((resolve, reject) => {
         const { username, email } = creds
         console.log('creds', creds)
-        axios.post(`http://strapi.telly.network/auth/local/register`, {
+        axios.post( appURL + '/auth/local/register', {
             username : username,
             email : email,
             password : username
@@ -139,7 +140,7 @@ export const googlelogin = creds => {
             var password =creds.username;
             console.log('heerer')
             axios
-            .post(`http://strapi.telly.network/auth/local`, {
+            .post( appURL + 'auth/local', {
             identifier: username,
             password: password
              })
