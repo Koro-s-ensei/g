@@ -18,16 +18,15 @@ export const login = creds => {
             password: password
         })
         .then(response => {
-            // Handle success.
-            console.log('Well done!');
-            console.log('User profile', response.data.user);
-            console.log('User token', response.data.jwt);
             if (response.status==200) {
                 const user = {
                     userdata: response.data.user,
                     token: response.data.jwt
                 }
+				//console.log(user);
                 localStorage.setItem('user', JSON.stringify(user))
+                localStorage.setItem('uv', JSON.stringify(user.userdata.id))
+                localStorage.setItem('uv-1', JSON.stringify(user.token))
                 resolve(user)
             }else{
                 reject({
@@ -66,8 +65,6 @@ export const register= creds => {
         })
         .then(response => {
             // Handle success.
-            console.log('Well done!');
-            console.log('User profile', response.status);
             
             if (response.status==200) {
                 const user = {
@@ -75,6 +72,8 @@ export const register= creds => {
                     token: response.data.jwt
                 }
                 localStorage.setItem('user', JSON.stringify(user))
+				localStorage.setItem('uv', JSON.stringify(user.userdata.id))
+                localStorage.setItem('uv-1', JSON.stringify(user.token))
                 resolve(user)
             }else{
                 reject({
@@ -119,6 +118,8 @@ export const googlelogin = creds => {
                     token: response.data.jwt
                 }
                 localStorage.setItem('user', JSON.stringify(user))
+				localStorage.setItem('uv', JSON.stringify(user.userdata.id))
+                localStorage.setItem('uv-1', JSON.stringify(user.token))
                 resolve(user)
             }else if(response.status==400){
                     console.log('here')
@@ -153,6 +154,8 @@ export const googlelogin = creds => {
                         token: response.data.jwt
                     }
                     localStorage.setItem('user', JSON.stringify(user))
+					localStorage.setItem('uv', JSON.stringify(user.userdata.id))
+					localStorage.setItem('uv-1', JSON.stringify(user.token))
                     resolve(user)
                 }else if(response.status==400){
                         console.log('here')

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { Row, Col } from 'reactstrap'
 import './profile.css';
 import VideoList from './VideoList/VideoList.jsx'
+import UserProfile from './UserProfile/userprofile.jsx'
 
 
 class ProfileManager extends Component{
@@ -11,12 +12,15 @@ class ProfileManager extends Component{
 		return (
 			<Row>
 				<Col>
+				<div className="profile-manger">
+					<UserProfile></UserProfile>
 					<div className="wrapper-video" >
-								<VideoList></VideoList >
+						<VideoList></VideoList >
 					</div>
 					<div>      
-					 \
+					 
 					</div>
+				</div>
 				</Col>
 			</Row>
 		)

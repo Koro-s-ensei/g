@@ -8,7 +8,7 @@ import './profilemodal.css';
 
 const VideoList = props => {
     const { tasks } = props
-
+	const { user } = props
     useEffect(() => { props.loadTasks() }, [])
 	const [ modalState, setModalState ] = useState(false);
 	const [ videoLinks,setvideoLinks ] = useState('');

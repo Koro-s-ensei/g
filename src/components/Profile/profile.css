@@ -3,10 +3,14 @@
     margin:0;
     box-sizing: border-box;
 }
+.profile-manger{
+	margin-top:30px;
+}
 .video-wrapper{
 	display: flex;
 	flex-wrap: wrap;
 	align-content: space-between;
+	
 }
 .video-list{
 	width: 320px;

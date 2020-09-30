@@ -13,7 +13,6 @@ class Register extends Component {
             username: '',
             email:'',
             number:'',
-			phonenumber:'',
             password: ''
         },
         errors: {}
@@ -22,12 +21,11 @@ class Register extends Component {
     validate = () => {
         const { data } = this.state
         const errors = {}
-
+		console.log(data);
         if (data.username === '') errors.username = 'Username cannot be blank.'
         if (data.password === '') errors.password = 'Password cannot be blank.'
         if (data.email === '') errors.email = 'Email cannot be blank.'
         if (data.number === '') errors.number = 'PhoneNumber cannot be blank.'
-        if (data.phonenumber === '') errors.phonenumber = 'Phone number cannot be blank.'
         if(data.email !=''){
          var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
          if (!pattern.test(data.email)) errors.email = 'Invalid email address'
@@ -57,7 +55,6 @@ class Register extends Component {
                     username: '',
                     email: '',
                     number: '',
-                    phonenumber: '',
                     password: ''
                 },
                 errors: {}

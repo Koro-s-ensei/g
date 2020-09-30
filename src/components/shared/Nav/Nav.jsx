@@ -8,7 +8,6 @@ import { logoutUserAction } from '../../../actions/userActions'
 const Nav = props => {
 
     const { user } = props
-
     const handleLogout = () => {
         props.dispatch(logoutUserAction())
     }
